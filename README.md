@@ -9,8 +9,8 @@
 
 A collection of cute things to use with ggplot2. Right now `ggcute` only
 consists of one thing: a ggplot2 port of
-[https://twitter.com/sailorhg](sailorhg)’s
-[https://sailorhg.github.io/fairyfloss/](fairyfloss) text editor theme.
+[sailorhg](https://twitter.com/sailorhg)’s
+[fairyfloss](https://sailorhg.github.io/fairyfloss/) text editor theme.
 
 ## Installation
 
