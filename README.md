@@ -35,7 +35,8 @@ library(ggcute)
 
 ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
   geom_col() +
-  facet_wrap(~sales_type) + theme_fairyfloss()
+  facet_wrap(~sales_type) + 
+  theme_fairyfloss()
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
