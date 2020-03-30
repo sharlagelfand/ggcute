@@ -89,6 +89,28 @@ ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) +
   theme_minimal()
 ```
 
+## sugarpilll
+
+`theme_sugarpill()` is a theme based off the [Sugarpill](https://www.instagram.com/sugarpill/) [Fun Size eyeshadow palette](https://sugarpill.com/products/fun-size-palette). Similar to fairyfloss, there are also `scale_*_sugarpill()` functions.
+
+```{r}
+library(dplyr)
+library(forcats)
+
+nintendo_sales %>%
+  mutate(console = fct_lump_n(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
+  group_by(console, sales_type) %>%
+  summarise(sales_million = sum(sales_million)) %>%
+  ungroup() %>%
+  ggplot(aes(x = sales_type, y = sales_million, fill = console)) + 
+  geom_col(position = position_dodge2()) + 
+  facet_wrap(vars(console)) + 
+  labs(x = "", y = "", title = "Nintendo units sold (millions) by console", subtitle = "Data as of December 31, 2019") + 
+  scale_fill_sugarpill() + 
+  theme_sugarpill() + 
+  theme(legend.position = "none")
+```
+
 ## Data
 
 `ggcute` comes with one data set built in, Nintendo sales as of December 31, 2019:

@@ -6,15 +6,12 @@
 \usage{
 theme_fairyfloss(
   base_size = 16,
-  base_family = "Courier",
   base_line_size = base_size/22,
   base_rect_size = base_size/22
 )
 }
 \arguments{
 \item{base_size}{base font size}
-
-\item{base_family}{base font family}
 
 \item{base_line_size}{base size for line elements}
 

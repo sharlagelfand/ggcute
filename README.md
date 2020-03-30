@@ -93,6 +93,40 @@ ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) +
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="75%" />
 
+## sugarpilll
+
+`theme_sugarpill()` is a theme based off the [Sugarpill]() \[Fun Size
+eyeshadow palette\]. Similar to fairyfloss, there are also
+`scale_*_sugarpill()` functions.
+
+``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+library(forcats)
+
+nintendo_sales %>%
+  mutate(console = fct_lump_n(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
+  group_by(console, sales_type) %>%
+  summarise(sales_million = sum(sales_million)) %>%
+  ungroup() %>%
+  ggplot(aes(x = sales_type, y = sales_million, fill = console)) + 
+  geom_col(position = position_dodge2()) + 
+  facet_wrap(vars(console)) + 
+  labs(x = "", y = "", title = "Nintendo units sold (millions) by console", subtitle = "Data as of December 31, 2019") + 
+  scale_fill_sugarpill() + 
+  theme_sugarpill() + 
+  theme(legend.position = "none")
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="75%" />
+
 ## Data
 
 `ggcute` comes with one data set built in, Nintendo sales as of December
