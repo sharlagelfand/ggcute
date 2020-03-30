@@ -24,10 +24,6 @@ scale_colour_fairyfloss <- function(discrete = TRUE, reverse = FALSE, ...) {
   }
 }
 
-#' @export
-#' @rdname scale_colour_fairyfloss
-scale_color_fairyfloss <- scale_colour_fairyfloss
-
 #' Fairyfloss fill scale
 #'
 #' @inheritParams scale_colour_fairyfloss
@@ -61,3 +57,7 @@ fairyfloss_pal <- function(reverse = FALSE, ...) {
   }
   colorRampPalette(pal, ...)
 }
+
+#' @export
+#' @rdname scale_colour_fairyfloss
+scale_color_fairyfloss <- scale_colour_fairyfloss
