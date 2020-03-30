@@ -1,0 +1,17 @@
+Package: ggcute
+Title: Cute Things for ggplot2
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sharla",
+           family = "Gelfand",
+           role = c("aut", "cre"),
+           email = "sharla.gelfand@gmail.com")
+Description: Cute things to use in ggplot2.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    tibble,
+    ggplot2

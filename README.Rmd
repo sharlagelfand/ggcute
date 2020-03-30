@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi = 300
+)
+```
+
+# ggcute
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+A collection of cute things to use with ggplot2. 
+Right now `ggcute` only consists of one thing: a ggplot2 port of [https://twitter.com/sailorhg](sailorhg)'s [https://sailorhg.github.io/fairyfloss/](fairyfloss) text editor theme.
+
+## Installation
+
+You can install ggcute from GitHub with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("sharlagelfand/ggcute")
+```
+
+# theme_fairyfloss()
+
+`theme_fairyfloss()` is a theme based off of  [https://twitter.com/sailorhg](sailorhg)'s [https://sailorhg.github.io/fairyfloss/](fairyfloss) text editor theme.
+
+You can use it like any other ggplot2 theme:
+
+```{r}
+library(ggplot2)
+library(ggcute)
+
+ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
+  geom_col() +
+  facet_wrap(~sales_type) + theme_fairyfloss()
+
+ggplot(nintendo_sales, aes(x = sales_million, y = console, fill = sales_type)) +
+  geom_col(position = position_dodge2(width = 0.1), alpha = 0.75) +
+  labs(
+    x = "Sales (million)", y = "Console", title = "Nintendo sales by console",
+    subtitle = "As of December 31, 2019"
+  ) +
+  theme(legend.title = element_blank()) +
+  theme_fairyfloss()
+```
+
+It's probably (definitely) not a complete theme but at least it's cute `r emo::ji("cloud")`
+
+`ggcute` comes with one data set built in, Nintendo sales as of December 31, 2019:
+
+```{r}
+nintendo_sales
+```
