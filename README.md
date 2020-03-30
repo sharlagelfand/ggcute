@@ -32,7 +32,7 @@ library(ggcute)
 
 ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
   geom_col() +
-  facet_wrap(~sales_type) + 
+  facet_wrap(~sales_type) +
   theme_fairyfloss()
 ```
 
@@ -61,7 +61,7 @@ ggplot(nintendo_sales, aes(x = sales_million, y = console, fill = sales_type)) +
     x = "Sales (million)", y = "Console", title = "Nintendo sales by console",
     subtitle = "As of December 31, 2019"
   ) +
-  scale_fill_fairyfloss() + 
+  scale_fill_fairyfloss() +
   theme_fairyfloss()
 ```
 
@@ -71,12 +71,14 @@ or `scale_colour_fairyfloss()` (“color” instead of colour works
 too):
 
 ``` r
-ggplot(nintendo_sales, aes(x = sales_type, y = sales_million, colour = console)) + 
-  geom_jitter(size = 5, alpha = 0.5) + 
-  scale_colour_fairyfloss() + 
-  theme_fairyfloss(base_size = 12) + 
-  theme(legend.position = "bottom",
-        legend.title = element_blank())
+ggplot(nintendo_sales, aes(x = sales_type, y = sales_million, colour = console)) +
+  geom_jitter(size = 5, alpha = 0.5) +
+  scale_colour_fairyfloss() +
+  theme_fairyfloss(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="75%" />
@@ -85,9 +87,9 @@ Of course, you can use the palette without the theme and it’s still
 extremely cute:
 
 ``` r
-ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) + 
-  geom_jitter() + 
-  scale_colour_fairyfloss(discrete = FALSE) + 
+ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) +
+  geom_jitter() +
+  scale_colour_fairyfloss(discrete = FALSE) +
   theme_minimal()
 ```
 
@@ -95,20 +97,13 @@ ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) +
 
 ## sugarpilll
 
-`theme_sugarpill()` is a theme based off the [Sugarpill]() \[Fun Size
-eyeshadow palette\]. Similar to fairyfloss, there are also
-`scale_*_sugarpill()` functions.
+`theme_sugarpill()` is a theme based off the
+[Sugarpill](https://www.instagram.com/sugarpill/) [Fun Size eyeshadow
+palette](https://sugarpill.com/products/fun-size-palette). Similar to
+fairyfloss, there are also `scale_*_sugarpill()` functions.
 
 ``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(forcats)
 
 nintendo_sales %>%
@@ -116,12 +111,16 @@ nintendo_sales %>%
   group_by(console, sales_type) %>%
   summarise(sales_million = sum(sales_million)) %>%
   ungroup() %>%
-  ggplot(aes(x = sales_type, y = sales_million, fill = console)) + 
-  geom_col(position = position_dodge2()) + 
-  facet_wrap(vars(console)) + 
-  labs(x = "", y = "", title = "Nintendo units sold (millions) by console", subtitle = "Data as of December 31, 2019") + 
-  scale_fill_sugarpill() + 
-  theme_sugarpill() + 
+  ggplot(aes(x = sales_type, y = sales_million, fill = console)) +
+  geom_col(position = position_dodge2()) +
+  facet_wrap(vars(console)) +
+  labs(
+    x = "", y = "",
+    title = "Nintendo units sold (millions) by console",
+    subtitle = "Data as of December 31, 2019"
+  ) +
+  scale_fill_sugarpill() +
+  theme_sugarpill() +
   theme(legend.position = "none")
 ```
 
