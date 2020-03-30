@@ -21,6 +21,7 @@ theme_fairyfloss <- function(base_size = 16, base_family = "Courier", base_line_
       panel.background = element_rect(fill = fairyfloss_col("light_purple")),
       panel.grid.major = element_line(colour = fairyfloss_col("blue")),
       panel.grid.minor = element_blank(),
+      axis.ticks = element_line(colour = fairyfloss_col("dark_yellow")),
       axis.text = element_text(colour = fairyfloss_col("dark_yellow")),
       axis.title = element_text(colour = fairyfloss_col("mint")),
       plot.title = element_text(colour = fairyfloss_col("dark_pink"), hjust = 0.5),
@@ -101,7 +102,7 @@ scale_color_fairyfloss <- scale_colour_fairyfloss
 fairyfloss_col <- function(...) {
   cols <- c(...)
 
-  if(is.null(cols)) {
+  if (is.null(cols)) {
     return(fairyfloss_colours)
   }
 
