@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%",
+  out.width = "75%",
   dpi = 300
 )
 ```
@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 A collection of cute things to use with ggplot2. 
-Right now `ggcute` only consists of one thing: a ggplot2 port of [sailorhg](https://twitter.com/sailorhg)'s [fairyfloss](https://sailorhg.github.io/fairyfloss/) text editor theme.
 
 ## Installation
 
@@ -31,9 +30,9 @@ You can install ggcute from GitHub with:
 remotes::install_github("sharlagelfand/ggcute")
 ```
 
-# theme_fairyfloss()
+## fairyfloss
 
-`theme_fairyfloss()` is a theme based off of  [https://twitter.com/sailorhg](sailorhg)'s [https://sailorhg.github.io/fairyfloss/](fairyfloss) text editor theme.
+`theme_fairyfloss()` is a theme based off of  [sailorhg](https://twitter.com/sailorhg)'s [fairyfloss](https://sailorhg.github.io/fairyfloss/) text editor theme.
 
 You can use it like any other ggplot2 theme:
 
@@ -45,18 +44,52 @@ ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
   geom_col() +
   facet_wrap(~sales_type) + 
   theme_fairyfloss()
+```
 
+It's probably (definitely) not a complete theme but at least it's cute `r emo::ji("cloud")`
+
+There is a colour palette built in:
+
+```{r}
+library(scales)
+
+show_col(ggcute:::fairyfloss_colours)
+```
+
+You can use it in plots via `scale_fill_fairyfloss()`:
+
+```{r}
 ggplot(nintendo_sales, aes(x = sales_million, y = console, fill = sales_type)) +
   geom_col(position = position_dodge2(width = 0.1), alpha = 0.75) +
   labs(
     x = "Sales (million)", y = "Console", title = "Nintendo sales by console",
     subtitle = "As of December 31, 2019"
   ) +
-  theme(legend.title = element_blank()) +
+  scale_fill_fairyfloss() + 
   theme_fairyfloss()
 ```
 
-It's probably (definitely) not a complete theme but at least it's cute `r emo::ji("cloud")`
+or `scale_colour_fairyfloss()` ("color" instead of colour works too):
+
+```{r}
+ggplot(nintendo_sales, aes(x = sales_type, y = sales_million, colour = console)) + 
+  geom_jitter(size = 5, alpha = 0.5) + 
+  scale_colour_fairyfloss() + 
+  theme_fairyfloss(base_size = 12) + 
+  theme(legend.position = "bottom",
+        legend.title = element_blank())
+```
+
+Of course, you can use the palette without the theme and it's still extremely cute:
+
+```{r}
+ggplot(head(diamonds, 1000), aes(x = cut, y = carat, colour = carat)) + 
+  geom_jitter() + 
+  scale_colour_fairyfloss(discrete = FALSE) + 
+  theme_minimal()
+```
+
+## Data
 
 `ggcute` comes with one data set built in, Nintendo sales as of December 31, 2019:
 
