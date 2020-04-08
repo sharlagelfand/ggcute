@@ -1,6 +1,6 @@
 #' animalcrossing theme
 #'
-#' A very cute ggplot2 theme based off \href{https://www.canva.com/colors/color-palette-generator/}{Canva}'s palette generator.
+#' A ggplot2 theme based off \href{https://www.canva.com/colors/color-palette-generator/}{Canva}'s palette generator.
 #' Palette generated on image of Nintendo Switch Animal Crossing New Horizons special edition.
 #'
 #' @inheritParams ggplot2::theme_grey
