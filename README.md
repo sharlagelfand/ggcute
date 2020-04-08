@@ -130,7 +130,7 @@ nintendo_sales %>%
 `theme_animalcrossing()` is a ggplot2 theme based off a palette generator 
 [Canva](https://www.canva.com/colors/color-palette-generator/). Palette generated on image of a Nintendo Switch Animal Crossing New Horizons special edition. You can use this to do things like plot out how many bells you owe Tom Nook!
 
-<img src="man/figures/README-unnamed-chunk-8-2.jpeg" width="75%" />
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="75%" />
 
 
 ```{r}
