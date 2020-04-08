@@ -20,10 +20,10 @@ theme_animalcrossing <- function(base_size = 16, base_line_size = base_size / 22
   theme_grey(base_size = base_size, base_family = "Courier", base_line_size, base_rect_size) +
     theme(
       plot.background = element_rect(fill = animalcrossing_col("beige"), colour = animalcrossing_col("sky_blue")),
-      panel.background = element_rect(fill = animalcrossing_col("sky_blue")),
-      panel.grid.major = element_line(colour = animalcrossing_col("dark_sea_green")),
+      panel.background = element_rect(fill = animalcrossing_col("dark_sea_green")),
+      panel.grid.major = element_line(colour = animalcrossing_col("peru")),
       panel.grid.minor = element_blank(),
-      axis.ticks = element_line(colour = animalcrossing_col("dark_sea_green")),
+      axis.ticks = element_line(colour = animalcrossing_col("peru")),
       axis.text = element_text(colour = animalcrossing_col("sienna")),
       axis.title = element_text(colour = animalcrossing_col("dark_slate")),
       plot.title = element_text(colour = animalcrossing_col("dark_slate"), hjust = 0.5),
