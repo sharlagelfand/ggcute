@@ -17,7 +17,7 @@
 #' @importFrom ggplot2 element_rect element_line element_text element_blank theme theme_grey
 #'
 theme_animalcrossing <- function(base_size = 16, base_line_size = base_size / 22, base_rect_size = base_size / 22) {
-  theme_grey(base_size = base_size, base_family = "Courier", base_line_size, base_rect_size) +
+  theme_grey(base_size = base_size, base_family = "Helvetica-Narrow", base_line_size, base_rect_size) +
     theme(
       plot.background = element_rect(fill = animalcrossing_col("beige"), colour = animalcrossing_col("sky_blue")),
       panel.background = element_rect(fill = animalcrossing_col("dark_sea_green")),
