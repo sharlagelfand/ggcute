@@ -46,7 +46,7 @@ ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
   theme_fairyfloss()
 ```
 
-It's probably (definitely) not a complete theme but at least it's cute `r emo::ji("cloud")`
+It's probably (definitely) not a complete theme but at least it's cute `r` `emo::ji("cloud")`
 
 There is a colour palette built in:
 
@@ -100,7 +100,7 @@ library(dplyr)
 library(forcats)
 
 nintendo_sales %>%
-  mutate(console = fct_lump_n(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
+  mutate(console = fct_lump(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
   group_by(console, sales_type) %>%
   summarise(sales_million = sum(sales_million)) %>%
   ungroup() %>%
@@ -117,7 +117,7 @@ nintendo_sales %>%
   theme(legend.position = "none")
 ```
 
-## Animal crossing
+## animalcrossing
 `theme_animalcrossing()` is a ggplot2 theme based off a palette generator 
 [Canva](https://www.canva.com/colors/color-palette-generator/). Palette generated on image of a Nintendo Switch Animal Crossing New Horizons special edition. You can use this to do things like plot out how many bells you owe Tom Nook!
 

@@ -2,12 +2,20 @@
 
 export(scale_color_fairyfloss)
 export(scale_color_sugarpill)
+export(scale_color_animalcrossing)
+
 export(scale_colour_fairyfloss)
 export(scale_colour_sugarpill)
+export(scale_colour_animalcrossing)
+
 export(scale_fill_fairyfloss)
 export(scale_fill_sugarpill)
+export(scale_fill_animalcrossing)
+
 export(theme_fairyfloss)
 export(theme_sugarpill)
+export(theme_animalcrossing)
+
 importFrom(ggplot2,discrete_scale)
 importFrom(ggplot2,element_blank)
 importFrom(ggplot2,element_line)
