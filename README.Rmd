@@ -46,7 +46,7 @@ ggplot(nintendo_sales, aes(x = sales_million, y = console)) +
   theme_fairyfloss()
 ```
 
-It's probably (definitely) not a complete theme but at least it's cute `r emo::ji("cloud")`
+It's probably (definitely) not a complete theme but at least it's cute `r` `emo::ji("cloud")`
 
 There is a colour palette built in:
 
@@ -100,7 +100,7 @@ library(dplyr)
 library(forcats)
 
 nintendo_sales %>%
-  mutate(console = fct_lump_n(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
+  mutate(console = fct_lump(console, n = 8, w = sales_million, other_level = "Other Consoles")) %>%
   group_by(console, sales_type) %>%
   summarise(sales_million = sum(sales_million)) %>%
   ungroup() %>%
@@ -116,6 +116,49 @@ nintendo_sales %>%
   theme_sugarpill() +
   theme(legend.position = "none")
 ```
+
+## animalcrossing
+`theme_animalcrossing()` is a ggplot2 theme based off a palette generator 
+[Canva](https://www.canva.com/colors/color-palette-generator/). Palette generated on image of a Nintendo Switch Animal Crossing New Horizons special edition. You can use this to do things like plot out how many bells you owe Tom Nook!
+
+![](https://animalcrossingworld.com/wp-content/uploads/2020/01/special-edition-animal-crossing-new-horizons-nintendo-switch-standalone-parts-banner.jpg)
+
+```{r}
+ggplot(nintendo_sales, aes(x = console, y = sales_million)) +
+  geom_col(fill = animalcrossing_colours["sky_blue"],
+           color = animalcrossing_colours["dark_slate"]) +
+  facet_wrap(~sales_type)+
+  theme_animalcrossing() +
+  coord_flip() +
+  labs(title = "Nintendo Sales",
+       subtitle = "Hardware vs. Software")
+```
+
+Below is the palette the package uses! Maybe we can add more colors from characters (Tom Nook, Blathers, Gulliver, etc.)
+
+```{r}
+library(scales)
+
+show_col(animalcrossing_colours)
+```
+
+Here is another example:
+
+```{r}
+  ggplot(nintendo_sales, aes(x = sales_type, y = sales_million, fill = sales_type))+
+  geom_boxplot()+
+  geom_jitter(color = animalcrossing_colours["dark_slate"])+
+  scale_fill_animalcrossing(discrete = T)+
+  theme_animalcrossing() +
+  coord_flip() +
+  labs(title = "Nintendo Sales",
+       subtitle = "Hardware vs. Software",
+       y = "Sales (Millions)",
+       x = "Type",
+       fill = "")
+```
+
+
 
 ## Data
 

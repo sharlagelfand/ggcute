@@ -8,6 +8,8 @@ export(scale_fill_fairyfloss)
 export(scale_fill_sugarpill)
 export(theme_fairyfloss)
 export(theme_sugarpill)
+
+
 importFrom(ggplot2,discrete_scale)
 importFrom(ggplot2,element_blank)
 importFrom(ggplot2,element_line)

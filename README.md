@@ -126,6 +126,52 @@ nintendo_sales %>%
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="75%" />
 
+## animalcrossing
+`theme_animalcrossing()` is a ggplot2 theme based off a palette generator 
+[Canva](https://www.canva.com/colors/color-palette-generator/). Palette generated on image of a Nintendo Switch Animal Crossing New Horizons special edition. You can use this to do things like plot out how many bells you owe Tom Nook!
+
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="75%" />
+
+
+```{r}
+ggplot(nintendo_sales, aes(x = console, y = sales_million)) +
+  geom_col(fill = animalcrossing_colours["sky_blue"],
+           color = animalcrossing_colours["dark_slate"]) +
+  facet_wrap(~sales_type)+
+  theme_animalcrossing() +
+  coord_flip() +
+  labs(title = "Nintendo Sales",
+       subtitle = "Hardware vs. Software")
+```
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="75%" />
+
+Below is the palette the package uses! Maybe we can add more colors from characters (Tom Nook, Blathers, Gulliver, etc.)
+
+``` r
+library(scales)
+
+show_col(ggcute:::animalcrossing_colours)
+```
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="75%" />
+
+Here is another example:
+
+```{r}
+  ggplot(nintendo_sales, aes(x = sales_type, y = sales_million, fill = sales_type))+
+  geom_boxplot()+
+  geom_jitter(color = animalcrossing_colours["dark_slate"])+
+  scale_fill_animalcrossing(discrete = T)+
+  theme_animalcrossing() +
+  coord_flip() +
+  labs(title = "Nintendo Sales",
+       subtitle = "Hardware vs. Software",
+       y = "Sales (Millions)",
+       x = "Type",
+       fill = "")
+```
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="75%" />
+
+
 ## Data
 
 `ggcute` comes with one data set built in, Nintendo sales as of December
